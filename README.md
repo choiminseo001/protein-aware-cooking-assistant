@@ -76,18 +76,19 @@ The lookup table contains more ingredients than the 32 detection classes to prov
 
 Detailed training and evaluation procedures can be found in:
 
-`model_optimization/yolov8_training_and_optimization.ipynb`
+`model_optimization/yolov8_training_and_optimization.ipynb`, `model_optimization/accuracy_drop.ipynb`
 
 ### Quantization
 
 The trained YOLOv8 model was converted to TensorFlow Lite and quantized to INT8.
 
-| Model       | Size     |
-| ----------- | -------- |
-| FP32 TFLite | 11.74 MB |
-| INT8 TFLite | 3.20 MB  |
+| Model       | Size     | mAP@50 | mAP@50-95 |
+| ----------- | -------- | ------ | --------- |
+| FP32 TFLite | 11.74 MB | 93.89% | 68.16%    |
+| INT8 TFLite | 3.20 MB  | 93.48% | 67.61%    |
 
-Model size reduction: 72.7%
+Model size reduction: 72.7%  
+Accuracy drop (mAP@50): 0.41 percentage points
 
 The Android application uses the INT8 model:
 
